@@ -1,0 +1,1 @@
+﻿(vd: string test - trong class Test.java - biến thể hiện nội dung được lấy ra trong bài test)

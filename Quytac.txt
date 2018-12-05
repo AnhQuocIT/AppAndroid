@@ -1,0 +1,9 @@
+﻿Quy tac đat ten
+- https://freetuts.net/cu-phap-va-quy-tac-java-co-ban-1028.html (Đọc kỹ - quan trọng)
+
+Quy tac lam viec
+- Kiểm tra phiên bản android sdk sao cho phù hợp với cả team để chạy được dự án
+- Khi code, có tạo mới thư viện, hằng, biến, phương thức nào mới thì ghi rõ trong file "TenBienPhuongThuc.txt" với công dụng nó là gì và trong class nào.
+- Luôn tuân thủ đúng quy tắc coding ở trên
+- Khi commit file phải comment rõ ràng đã tác động đến những file nào, tên gì 
+

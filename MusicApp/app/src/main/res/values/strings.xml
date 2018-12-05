@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MusicApp</string>
+    <string name="lbl_home">Trang chủ</string>
+    <string name="lbl_search">Tìm kiếm</string>
+</resources>

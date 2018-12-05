@@ -1,0 +1,15 @@
+1 - Tao Database - Them du lieu - ket noi database (local) - Them thu vien hinh anh co ban
+2 - Web API - Fragment quang cao - Doc Api quang cao - Lay du lieu len quang cao
+3 - Playlist API - Doc du lieu - Fragment playlist - Gan du lieu len giao dien
+4 - Chu de - The loai API - Fragment chu de - the loai - Gan du lieu len chu de the loai
+5 - Album API - Fragment Album - gan du lieu album
+6 - API bai hat yeu thich - Fragment bai hat yeu thich - gan du lieu
+7 - Bat su kien quang cao - Giao dien danh sach bai hat - API bai hat cho quang cao recyclerview
+8 - API idplaylist - doc du lieu idplaylist - API tra du lieu tat ca playlist - Giao dien man hinh playlist - Gan du lieu
+9 - Bat su kien item cua playlist chuyen du lieu qua man hinh danh sach bai hat
+10 - API tra du lieu theo chu de - theo the loai - Thiet ke giao dien chu de - chuyen du lieu qua lai cac man hinh theo chu de
+11 - API tra ve du lieu album - giao dien man hinh album
+12 - API cap nhat du lieu luot thich bai hat
+13 - Bat su kien cac button - giao dien choi nhac - giao dien hien thi danh sach nhac - hien thi phan dia nhac
+14 - Bat su kien cho cac nut tren thanh choi nhac - Cap nhat thoi gian va chuyen bai hat
+15 - API tim kiem bai hat - giao dien tim kiem - ban ve tim kiem - gan du lieu phan tim kiem
