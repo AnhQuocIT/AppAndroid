@@ -5,5 +5,6 @@ Quy tac lam viec
 - Kiểm tra phiên bản android sdk sao cho phù hợp với cả team để chạy được dự án
 - Khi code, có tạo mới thư viện, hằng, biến, phương thức nào mới thì ghi rõ trong file "TenBienPhuongThuc.txt" với công dụng nó là gì và trong class nào.
 - Luôn tuân thủ đúng quy tắc coding ở trên
-- Khi commit file phải comment rõ ràng đã tác động đến những file nào, tên gì 
+- Khi commit file phải comment rõ ràng đã tác động đến những file nào, tên gì
+- Nếu có đưa hình vào đồ án (vào thư mục drawable) thì nó sẽ hiện ra 1 bảng để chọn thư mục thì hãy CHỌN (.../drawable) KHÔNG CHỌN (.../drawable-v24)
 
