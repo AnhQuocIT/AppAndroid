@@ -1,0 +1,5 @@
+﻿Buoc 1: Download file musicapp.rar, link: https://drive.google.com/open?id=1sWoYG61xq7O1-vF-BHOzQjU5TggTDinu
+Buoc 2: Giải nén, chép toàn bộ thư mục vào đường dẫn: C:\xampp\htdocs\  (đường dẫn này sẽ có sau khi cài XAMPP)
+Buoc 3: Chạy trang http://localhost:8080/phpmyadmin/ (nếu cài và cấu hình XAMPP thành công thì sẽ chạy đúng)
+Buoc 4: Tạo mới database tên 'musicapp'
+Buoc 5: Ấn vào chữ IMPORT, trỏ tới file musicapp.sql
