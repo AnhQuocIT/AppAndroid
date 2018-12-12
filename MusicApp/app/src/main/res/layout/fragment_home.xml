@@ -27,5 +27,15 @@
             android:id="@+id/fragmenttopicandkind"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <fragment
+            android:id="@+id/fragmentalbum"
+            android:name="com.example.anhquoc.musicapp.Fragment.Fragment_Album_Hot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <fragment
+            android:id="@+id/fragmentbaihathot"
+            android:name="com.example.anhquoc.musicapp.Fragment.Fragment_Bai_Hat_Hot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>

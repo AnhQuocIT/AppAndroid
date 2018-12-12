@@ -1,5 +1,7 @@
 package com.example.anhquoc.musicapp.Service;
 
+import com.example.anhquoc.musicapp.Model.Album;
+import com.example.anhquoc.musicapp.Model.Baihat;
 import com.example.anhquoc.musicapp.Model.Chude;
 import com.example.anhquoc.musicapp.Model.Playlist;
 import com.example.anhquoc.musicapp.Model.Quangcao;
@@ -26,4 +28,10 @@ public interface DataService {
 
     @GET("chudevatheloaitrongngay.php")
     Call<Theloaitrongngay> GetCategoryMusic();
+
+    @GET("albumhot.php")
+    Call<List<Album>> GetAlbumHot();
+
+    @GET("baihatduocthich.php")
+    Call<List<Baihat>> GetBaiHatHot();
 }
