@@ -11,7 +11,10 @@ import com.example.anhquoc.musicapp.Model.Theloaitrongngay;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface DataService {
     @GET("songbanner.php")
@@ -34,4 +37,15 @@ public interface DataService {
 
     @GET("baihatduocthich.php")
     Call<List<Baihat>> GetBaiHatHot();
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<Baihat>> GetDanhsachbaihattheoquangcao(@Field("idquangcao") String idquangcao);
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<Baihat>>  GetDanhsachbaihattheoplaylist(@Field("idplaylist") String idplaylist);
+
+    @GET("danhsachcacplaylist.php")
+    Call<List<Playlist>> GetDanhsachcacPlaylist();
 }

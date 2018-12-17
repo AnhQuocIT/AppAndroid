@@ -57,7 +57,6 @@ public class Fragment_Banner extends Fragment {
                 ArrayList<Quangcao> banners = (ArrayList<Quangcao>) response.body();
 
                 bannerAdapter = new BannerAdapter(getActivity(),banners);
-                Log.d("Check",banners.get(0).getTenBaiHat());
                 viewPager.setAdapter(bannerAdapter);
                 circleIndicator.setViewPager(viewPager);
                 handler = new Handler();
@@ -74,6 +73,8 @@ public class Fragment_Banner extends Fragment {
                         handler.postDelayed(runnable,4500);
                     }
                 };
+                handler.postDelayed(runnable,4500);
+
             }
             @Override
             public void onFailure(Call<List<Quangcao>> call, Throwable t) {
