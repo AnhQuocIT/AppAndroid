@@ -52,8 +52,8 @@ public class BaihathotAdapter extends RecyclerView.Adapter<BaihathotAdapter.View
         public ViewHolder(View itemView){
             super(itemView);
             txtten=itemView.findViewById(R.id.textviewtenbaihathot);
-            imghinh=itemView.findViewById(R.id.imageviewalbum);
-            txtcasi=itemView.findViewById(R.id.imageviewbaihathot);
+            imghinh=itemView.findViewById(R.id.imageviewbaihathot);
+            txtcasi=itemView.findViewById(R.id.textviewcasibaihathot);
             imgluotthich=itemView.findViewById(R.id.imageviewluotthich);
         }
     }

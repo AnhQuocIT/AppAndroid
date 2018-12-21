@@ -28,12 +28,13 @@ import retrofit2.Response;
 
 public class Fragment_Bai_Hat_Hot extends Fragment {
     View view;
-    RecyclerView recyclerViewalbum;
+    RecyclerView recyclerViewBaiHatHot;
     BaihathotAdapter baihathotAdapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_bai_hat_hot,container,false);
+        recyclerViewBaiHatHot = view.findViewById(R.id.recycleviewbaihathot);
         GetData();
         return view;
     }
@@ -46,10 +47,10 @@ public class Fragment_Bai_Hat_Hot extends Fragment {
             public void onResponse(Call<List<Baihat>> call, Response<List<Baihat>> response) {
                 ArrayList<Baihat> baihatArrayList= (ArrayList<Baihat>) response.body();
                 baihathotAdapter = new BaihathotAdapter(getActivity(),baihatArrayList);
-                LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
+                LinearLayoutManager linearLayoutManager= new LinearLayoutManager(getActivity());
                 linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-                recyclerViewalbum.setLayoutManager(linearLayoutManager);
-                recyclerViewalbum.setAdapter(baihathotAdapter);
+                recyclerViewBaiHatHot.setLayoutManager(linearLayoutManager);
+                recyclerViewBaiHatHot.setAdapter(baihathotAdapter);
             }
 
             @Override
