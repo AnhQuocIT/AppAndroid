@@ -15,7 +15,12 @@
     }
     $arraydanhsachbaihat = array();
 
-    if (isset($_POST['idplaylist'])){
+    if (isset($_POST['idtheloai'])) {
+        $idtheloai = $_POST['idtheloai'];
+        $query = "SELECT * FROM baihat WHERE FIND_IN_SET('$idtheloai',idTheLoai)";
+    }
+
+    if (isset($_POST['idplaylist'])) {
         $idplaylist = $_POST['idplaylist'];
         $$query = "SELECT * FROM baihat WHERE FIND_IN_SET('$idplaylist',idPlaylist)";
     }

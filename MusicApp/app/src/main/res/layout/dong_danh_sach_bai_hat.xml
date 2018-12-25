@@ -19,7 +19,7 @@
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/textviewtenbaihat"
-            android:text="Ten ca khuc"
+            android:text="Tên ca khúc"
             android:textSize="20sp"
             android:textColor="#030303"
             android:layout_toRightOf="@id/textviewdanhsachindex"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/textviewtencasi"
-            android:text="Ca si"
+            android:text="Ca sĩ"
             android:textSize="20sp"
             android:textColor="#979797"
             android:singleLine="true"
