@@ -48,4 +48,15 @@ public interface DataService {
 
     @GET("danhsachcacplaylist.php")
     Call<List<Playlist>> GetDanhsachcacPlaylist();
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<Baihat>> GetDanhsachbaihattheotheloai(@Field("idtheloai") String idtheloai);
+
+    @GET("tatcachude.php")
+    Call<List<Chude>> GetAllChuDe();
+
+    @FormUrlEncoded
+    @POST("theloaitheochude.php")
+    Call<List<Theloai>> GetTheloaitheochude(@Field("idchude") String idchude);
 }

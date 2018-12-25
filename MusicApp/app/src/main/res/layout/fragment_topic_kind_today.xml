@@ -14,7 +14,7 @@
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:text="CHU DE VA THE LOAI"
+            android:text="Chủ Đề Và Thể Loại"
             android:id="@+id/textviewtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -23,7 +23,7 @@
             android:layout_alignParentRight="true"
             android:textColor="#913677"
             android:textSize="18sp"
-            android:text="Xem them"
+            android:text="Xem Thêm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>

@@ -3,7 +3,9 @@ package com.example.anhquoc.musicapp.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Theloai {
+import java.io.Serializable;
+
+public class Theloai implements Serializable {
 
 @SerializedName("idTheLoai")
 @Expose

@@ -17,7 +17,7 @@
 
     if (isset($_POST['idplaylist'])){
         $idplaylist = $_POST['idplaylist'];
-        $$query = "SELECT * FROM baihat WHERE FIND_IN_SET('$idplaylist',idPlaylist)";
+        $$query = "SELECT * FROM baihat WHERE FIND_IN_SET('$idplaylist',idPlayList)";
     }
 
     if (isset($_POST['idquangcao'])) {

@@ -1,6 +1,7 @@
 package com.example.anhquoc.musicapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.anhquoc.musicapp.Activity.DanhsachbaihatActivity;
+import com.example.anhquoc.musicapp.Activity.DanhsachcacplaylistActivity;
 import com.example.anhquoc.musicapp.Model.Playlist;
 import com.example.anhquoc.musicapp.R;
 import com.squareup.picasso.Picasso;
@@ -52,6 +55,14 @@ public class DanhsachcacplaylistAdapter extends RecyclerView.Adapter<Danhsachcac
             super(itemView);
             imghinhnen = itemView.findViewById(R.id.imageviewdanhsachcacplaylist);
             txttenplaylist = itemView.findViewById(R.id.textviewtendanhsachcacplaylist);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context,DanhsachbaihatActivity.class);
+                    intent.putExtra("itemplaylist",mangplaylist.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

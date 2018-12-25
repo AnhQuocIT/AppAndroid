@@ -18,7 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.DanhsachcacplaylistActivity"></activity>
+        <activity android:name=".Activity.DanhsachcacplaylistActivity" />
+        <activity android:name=".Activity.DanhsachtatcachudeActivity" />
+        <activity android:name=".Activity.DanhsachtheloaitheochudeActivity"></activity>
     </application>
 
 </manifest>
