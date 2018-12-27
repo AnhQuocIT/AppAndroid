@@ -1,5 +1,6 @@
 package com.example.anhquoc.musicapp.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.anhquoc.musicapp.Activity.DanhsachtatcaAlbumActivity;
 import com.example.anhquoc.musicapp.Adapter.AlbumAdapter;
 import com.example.anhquoc.musicapp.Model.Album;
 import com.example.anhquoc.musicapp.R;
@@ -44,6 +46,13 @@ public class Fragment_Album_Hot extends Fragment {
         view = inflater.inflate(R.layout.fragment_album_hot,container,false);
         recyclerViewalbum = view.findViewById(R.id.recycleviewAlbum);
         txtxemthemalbum = view.findViewById(R.id.textviewxemthemAlbum);
+        txtxemthemalbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DanhsachtatcaAlbumActivity.class);
+                startActivity(intent);
+            }
+        });
         //Mapping();
         GetData();
         return view;

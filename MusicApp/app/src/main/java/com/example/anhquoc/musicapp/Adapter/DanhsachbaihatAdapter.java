@@ -7,11 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.anhquoc.musicapp.Model.Baihat;
 import com.example.anhquoc.musicapp.R;
+import com.example.anhquoc.musicapp.Service.APIService;
+import com.example.anhquoc.musicapp.Service.DataService;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DanhsachbaihatAdapter extends RecyclerView.Adapter<DanhsachbaihatAdapter.ViewHolder>{
 
@@ -55,7 +62,33 @@ public class DanhsachbaihatAdapter extends RecyclerView.Adapter<DanhsachbaihatAd
             txtindex = itemView.findViewById(R.id.textviewdanhsachindex);
             txttenBaiHat = itemView.findViewById(R.id.textviewtenbaihat);
             imgluotthich = itemView.findViewById(R.id.imageviewluotthinhbaihat);
+            imgluotthich.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    imgluotthich.setImageResource(R.drawable.iconloved);
+                    DataService dataService = APIService.getService();
+                    Call<String> callback = dataService.UpdateLuotThich("1",mangbaihat.get(getPosition()).getIdBaiHat());
+                    callback.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            String ketqua = response.body();
+                            if(ketqua.equals("OK")){
 
+                                Toast.makeText(context, "Đã thích", Toast.LENGTH_SHORT).show();
+                            }else{
+
+                                Toast.makeText(context, "Bug!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+
+                        }
+                    });
+                    imgluotthich.setEnabled(false);
+                }
+            });
         }
     }
 }

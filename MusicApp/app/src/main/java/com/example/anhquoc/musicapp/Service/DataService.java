@@ -5,6 +5,7 @@ import com.example.anhquoc.musicapp.Model.Baihat;
 import com.example.anhquoc.musicapp.Model.Chude;
 import com.example.anhquoc.musicapp.Model.Playlist;
 import com.example.anhquoc.musicapp.Model.Quangcao;
+import com.example.anhquoc.musicapp.Model.TatcaAlbum;
 import com.example.anhquoc.musicapp.Model.Theloai;
 import com.example.anhquoc.musicapp.Model.Theloaitrongngay;
 
@@ -59,4 +60,15 @@ public interface DataService {
     @FormUrlEncoded
     @POST("theloaitheochude.php")
     Call<List<Theloai>> GetTheloaitheochude(@Field("idchude") String idchude);
+
+    @GET("tatcaalbum.php")
+    Call<List<TatcaAlbum>> GetAllAlbum();
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<Baihat>>  GetDanhSachBaiHatTheoAlbum(@Field("idalbum") String idalbum);
+
+    @FormUrlEncoded
+    @POST("updateluotthich.php")
+    Call<String> UpdateLuotThich(@Field("luotthich") String luotthich, @Field("idbaihat") String idbaihat);
 }
