@@ -1,16 +1,17 @@
 <?php
     require "connect.php";
    
-    class Baihat {
-        function Baihat($idbaihat,$tenbaihat,$hinhbaihat,$idcasi,$linkbaihat,$luotthich){
-            $this->idBaiHat = $idbaihat;
-            $this->TenBaiHat = $tenbaihat;
-            $this->HinhBaiHat = $hinhbaihat;
-            $this->CaSi = $idcasi;
-            $this->LinkBaiHat = $linkbaihat;
-            $this->LuotThich = $luotthich;
+    class Baihat{
+        function Baihat($idBaiHat,$tenBaiHat,$hinhBaiHat,$caSi,$linkBaiHat,$luotThich){
+            $this->idBaiHat = $idBaiHat;
+            $this->TenBaiHat = $tenBaiHat;
+            $this->HinhBaiHat = $hinhBaiHat;
+            $this->CaSi = $caSi;
+            $this->LinkBaiHat = $linkBaiHat;
+            $this->LuotThich = $luotThich;
         }
     }
+
     $arraydanhsachbaihat = array();
 
     if (isset($_POST['idalbum'])){
@@ -30,7 +31,7 @@
 
     if (isset($_POST['idquangcao'])) {
         $idquangcao = $_POST['idquangcao'];
-        $queryquangcao = "SELECT * FROM quangcao WHERE id ='$idquangcao'";
+        $queryquangcao = "SELECT * FROM quangcao WHERE id = '$idquangcao'";
         $dataquangcao = mysqli_query($con,$queryquangcao);
         $rowquangcao = mysqli_fetch_assoc($dataquangcao);
         $id = $rowquangcao['idBaiHat'];
@@ -39,7 +40,7 @@
 
     $data = mysqli_query($con,$query);
     while ($row = mysqli_fetch_assoc($data)) {
-        array_push($arraydanhsachbaihat,new Baihat($row['idBaiHat']
+        array_push($arraydanhsachbaihat, new Baihat($row['idBaiHat']
                                             ,$row['TenBaiHat']
                                             ,$row['HinhBaiHat']
                                             ,$row['CaSi']

@@ -10,14 +10,16 @@
         }
     }
     $arraytheloai = array();
-    $idchude = $_POST['idchude'];
-	$query = "SELECT * FROM theloai WHERE idChuDe = '$idchude'";
-	$data = mysqli_query($con,$query);
-	while ($row = mysqli_fetch_assoc($data)) {
-		array_push($arraytheloai, new Theloai($row['idTheLoai']
-												,$row['idChuDe']
-												,$row['TenTheLoai']
-												,$row['HinhTheLoai']));
+    if (isset($_POST['idchude'])){
+	    $idchude = $_POST['idchude'];
+		$query = "SELECT * FROM theloai WHERE idChuDe = '$idchude'";
+		$data = mysqli_query($con,$query);
+		while ($row = mysqli_fetch_assoc($data)) {
+			array_push($arraytheloai, new Theloai($row['idTheLoai']
+													,$row['idChuDe']
+													,$row['TenTheLoai']
+													,$row['HinhTheLoai']));
+		}
+		echo json_encode($arraytheloai);
 	}
-	echo json_encode($arraytheloai);
 ?>

@@ -2,4 +2,8 @@
     <string name="app_name">MusicApp</string>
     <string name="lbl_home">Trang chủ</string>
     <string name="lbl_search">Tìm kiếm</string>
+    <string name="lblNotValue">Không có dữ liệu bài hát</string>
+    <string name="lblSearch">Tìm kiếm</string>
+    <string name="lblTenBaiHat">Tên bài hát</string>
+    <string name="lblTenCaSi">Tên ca sĩ</string>
 </resources>

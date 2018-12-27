@@ -21,6 +21,7 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.example.anhquoc.musicapp.Adapter.ViewPagerPlaylistnhac;
 import com.example.anhquoc.musicapp.Fragment.Fragment_Dia_Nhac;
@@ -54,8 +55,8 @@ public class PlayNhacActivity extends AppCompatActivity {
         setContentView(R.layout.activity_play_nhac);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        init();
         GetDataFromIntent();
+        init();
         eventClick();
     }
 
@@ -250,7 +251,7 @@ public class PlayNhacActivity extends AppCompatActivity {
         imgrepeat = findViewById(R.id.imagebuttonrepeat);
         viewPagerplaynhac = findViewById(R.id.viewpaperplaynhac);
         setSupportActionBar(toolbarplaynhac);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbarplaynhac.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -263,8 +264,13 @@ public class PlayNhacActivity extends AppCompatActivity {
         fragment_dia_nhac = new Fragment_Dia_Nhac();
         fragment_play_danh_sach_cac_bai_hat = new Fragment_Play_Danh_Sach_Cac_Bai_Hat();
         adapternhac = new ViewPagerPlaylistnhac(getSupportFragmentManager());
-        adapternhac.AddFragment(fragment_play_danh_sach_cac_bai_hat);
-        adapternhac.AddFragment(fragment_dia_nhac);
+        //if(mangbaihat.size() == 1) {
+//            adapternhac.AddFragment(fragment_dia_nhac);
+//            adapternhac.AddFragment(fragment_play_danh_sach_cac_bai_hat);
+//        } else {
+            adapternhac.AddFragment(fragment_play_danh_sach_cac_bai_hat);
+            adapternhac.AddFragment(fragment_dia_nhac);
+//        }
         viewPagerplaynhac.setAdapter(adapternhac);
         fragment_dia_nhac = (Fragment_Dia_Nhac) adapternhac.getItem(1);
         if(mangbaihat.size() >0){
