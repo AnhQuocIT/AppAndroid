@@ -1,6 +1,7 @@
 package com.example.anhquoc.musicapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.anhquoc.musicapp.Activity.PlayNhacActivity;
 import com.example.anhquoc.musicapp.Model.Album;
 import com.example.anhquoc.musicapp.Model.Baihat;
 import com.example.anhquoc.musicapp.R;
@@ -61,7 +63,15 @@ public class BaihathotAdapter extends RecyclerView.Adapter<BaihathotAdapter.View
             txtten=itemView.findViewById(R.id.textviewtenbaihathot);
             imghinh=itemView.findViewById(R.id.imageviewbaihathot);
             txtcasi=itemView.findViewById(R.id.textviewcasibaihathot);
-            imgluotthich=itemView.findViewById(R.id.imageviewluotthich);
+            imgluotthich = itemView.findViewById(R.id.imageviewluotthich);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, PlayNhacActivity.class);
+                    intent.putExtra("cakhuc",baihatArrayList.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
             imgluotthich.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

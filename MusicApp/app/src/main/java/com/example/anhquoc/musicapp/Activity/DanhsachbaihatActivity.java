@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
+import android.os.StrictMode;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -58,6 +59,8 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_danhsachbaihat);
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
             DataIntent();
             anhxa();
             init();
@@ -89,6 +92,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
                 danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this,mangbaihat);
                 recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhsachbaihatActivity.this));
                 recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+                eventClick();
             }
 
             @Override
@@ -108,6 +112,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
                     danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this,mangbaihat);
                     recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhsachbaihatActivity.this));
                     recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+                    eventClick();
                 }
 
                 @Override
@@ -127,6 +132,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
                     danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this,mangbaihat);
                     recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhsachbaihatActivity.this));
                     recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+                    eventClick();
                 }
 
                 @Override
@@ -163,6 +169,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
                     danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity. this,mangbaihat);
                     recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhsachbaihatActivity.this));
                     recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+                    eventClick();
                 }
 
                 @Override
@@ -183,6 +190,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
             });
             collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
             collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+            floatingActionButton.setEnabled(false);
         }
 
 
@@ -212,4 +220,16 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
                 }
             }
         }
+    private void  eventClick(){
+        floatingActionButton.setEnabled(true);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DanhsachbaihatActivity.this,PlayNhacActivity.class);
+                intent.putExtra("cacbaihat",mangbaihat);
+                startActivity(intent);
+            }
+        });
+    }
+
     }

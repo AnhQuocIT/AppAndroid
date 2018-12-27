@@ -1,6 +1,7 @@
 package com.example.anhquoc.musicapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.anhquoc.musicapp.Activity.PlayNhacActivity;
 import com.example.anhquoc.musicapp.Model.Baihat;
 import com.example.anhquoc.musicapp.R;
 import com.example.anhquoc.musicapp.Service.APIService;
@@ -87,6 +89,14 @@ public class DanhsachbaihatAdapter extends RecyclerView.Adapter<DanhsachbaihatAd
                         }
                     });
                     imgluotthich.setEnabled(false);
+                }
+            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, PlayNhacActivity.class);
+                    intent.putExtra("cakhuc",mangbaihat.get(getPosition()));
+                    context.startActivity(intent);
                 }
             });
         }
