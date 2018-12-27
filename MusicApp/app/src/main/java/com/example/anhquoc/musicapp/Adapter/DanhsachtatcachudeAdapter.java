@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.anhquoc.musicapp.Activity.DanhsachtatcachudeActivity;
+import com.example.anhquoc.musicapp.Activity.DanhsachtheloaitheochudeActivity;
 import com.example.anhquoc.musicapp.Model.Chude;
 import com.example.anhquoc.musicapp.R;
 import com.squareup.picasso.Picasso;
@@ -53,7 +54,7 @@ public class DanhsachtatcachudeAdapter extends RecyclerView.Adapter<Danhsachtatc
             imgchude.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, DanhsachtatcachudeActivity.class);
+                    Intent intent = new Intent(context, DanhsachtheloaitheochudeActivity.class);
                     intent.putExtra("chude",mangchude.get(getPosition()));
                     context.startActivity(intent);
                 }

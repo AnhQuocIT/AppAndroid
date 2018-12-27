@@ -89,7 +89,7 @@ public class Fragment_Topic_Kind_Today extends Fragment {
                         public void onClick(View view) {
                             Intent intent = new Intent(getActivity(),DanhsachtheloaitheochudeActivity.class);
                             intent.putExtra("chude",chudeArrayList.get(finalI));
-                            startActivity(intent);
+                            startActivity(intent    );
                         }
                     });
                 }
