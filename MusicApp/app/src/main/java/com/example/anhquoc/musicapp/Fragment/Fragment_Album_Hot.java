@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.anhquoc.musicapp.Activity.DanhsachtatcaAlbumActivity;
 import com.example.anhquoc.musicapp.Adapter.AlbumAdapter;
 import com.example.anhquoc.musicapp.Model.Album;
+import com.example.anhquoc.musicapp.Model.TatcaAlbum;
 import com.example.anhquoc.musicapp.R;
 import com.example.anhquoc.musicapp.Service.APIService;
 import com.example.anhquoc.musicapp.Service.DataService;
@@ -65,11 +66,11 @@ public class Fragment_Album_Hot extends Fragment {
 
     private void GetData() {
         DataService dataService = APIService.getService();
-        Call<List<Album>> callback = dataService.GetAlbumHot();
-        callback.enqueue(new Callback<List<Album>>() {
+        Call<List<TatcaAlbum>> callback = dataService.GetAllAlbum();
+        callback.enqueue(new Callback<List<TatcaAlbum>>() {
             @Override
-            public void onResponse(Call<List<Album>> call, Response<List<Album>> response) {
-                ArrayList<Album> albumArrayList= (ArrayList<Album>) response.body();
+            public void onResponse(Call<List<TatcaAlbum>> call, Response<List<TatcaAlbum>> response) {
+                ArrayList<TatcaAlbum> albumArrayList= (ArrayList<TatcaAlbum>) response.body();
                 albumAdapter = new AlbumAdapter(getActivity(),albumArrayList);
                 LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
                 linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -78,7 +79,7 @@ public class Fragment_Album_Hot extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<List<Album>> call, Throwable t) {
+            public void onFailure(Call<List<TatcaAlbum>> call, Throwable t) {
 
             }
         });

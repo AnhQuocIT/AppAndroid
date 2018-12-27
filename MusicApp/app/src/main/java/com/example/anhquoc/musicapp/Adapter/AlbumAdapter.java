@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.anhquoc.musicapp.Activity.DanhsachbaihatActivity;
 import com.example.anhquoc.musicapp.Model.Album;
+import com.example.anhquoc.musicapp.Model.TatcaAlbum;
 import com.example.anhquoc.musicapp.R;
 import com.squareup.picasso.Picasso;
 
@@ -19,9 +20,9 @@ import java.util.ArrayList;
 
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder>{
     Context context;
-    ArrayList<Album> mangalbum;
+    ArrayList<TatcaAlbum> mangalbum;
 
-    public AlbumAdapter(Context context, ArrayList<Album> mangalbum) {
+    public AlbumAdapter(Context context, ArrayList<TatcaAlbum> mangalbum) {
         this.context = context;
         this.mangalbum = mangalbum;
     }
@@ -35,7 +36,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Album album=mangalbum.get(position);
+        TatcaAlbum album=mangalbum.get(position);
         holder.txtcasialbum.setText(album.getTenCaSiAlbum());
         holder.txttenalbum.setText(album.getTenAlbum());
         Picasso.with(context).load(album.getHinhAlbum()).into(holder.imghinhalbum);
