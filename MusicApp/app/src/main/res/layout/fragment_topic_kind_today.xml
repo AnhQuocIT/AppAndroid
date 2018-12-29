@@ -32,5 +32,7 @@
         android:id="@+id/horizontalscrollview"
         android:layout_below="@id/relativetopicandkind"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></HorizontalScrollView>
+        android:layout_height="wrap_content">
+
+    </HorizontalScrollView>
 </RelativeLayout>
