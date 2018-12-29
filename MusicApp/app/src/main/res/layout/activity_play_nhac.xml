@@ -2,7 +2,7 @@
 <LinearLayout android:weightSum="10"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/custom_background_play_nhac"
+    android:background="@drawable/theme2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.PlayNhacActivity"
@@ -72,10 +72,10 @@
                 android:background="@null"
                 android:id="@+id/imagebuttonsuffle"
                 android:layout_marginRight="15dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp" />
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
             <ImageButton
-                android:src="@drawable/iconpreview"
+                android:src="@drawable/prebutton"
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:id="@+id/imagebuttonpre"
@@ -83,7 +83,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp" />
             <ImageButton
-                android:src="@drawable/iconplay"
+                android:src="@drawable/playbutton"
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:id="@+id/imagebuttonplay"
@@ -91,7 +91,7 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp" />
             <ImageButton
-                android:src="@drawable/iconnext"
+                android:src="@drawable/nextbutton"
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:id="@+id/imagebuttonnext"
@@ -103,9 +103,9 @@
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:id="@+id/imagebuttonrepeat"
-                android:layout_marginRight="15dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp" />
+                android:layout_marginRight="10dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

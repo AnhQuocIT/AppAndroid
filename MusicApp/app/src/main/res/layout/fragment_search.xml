@@ -23,12 +23,12 @@
 
     </android.support.v7.widget.RecyclerView>
     <TextView
-        android:textColor="#f20"
+        android:textColor="#393737"
         android:visibility="gone"
         android:gravity="center"
         android:text="@string/lblNotValue"
         android:id="@+id/labelNotValue"
-        android:textSize="35dp"
+        android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </RelativeLayout>

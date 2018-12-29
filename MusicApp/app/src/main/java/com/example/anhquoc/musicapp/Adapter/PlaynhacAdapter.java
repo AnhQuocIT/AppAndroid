@@ -49,7 +49,7 @@ public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHo
             super(itemView);
             txtcasi = itemView.findViewById(R.id.textviewplaynhactencasi);
             txtindex = itemView.findViewById(R.id.textviewplaynhacindex);
-            txttenbaihat = itemView.findViewById(R.id.textviewplaynhactencasi);
+            txttenbaihat = itemView.findViewById(R.id.textviewplaynhactenbaihat);
         }
     }
 }

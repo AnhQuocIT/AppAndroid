@@ -1,6 +1,7 @@
 package com.example.anhquoc.musicapp.Activity;
 
 import android.annotation.TargetApi;
+import android.app.Service;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
@@ -10,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
@@ -80,10 +82,10 @@ public class PlayNhacActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(mediaPlayer.isPlaying()){
                     mediaPlayer.pause();
-                    imgplay.setImageResource(R.drawable.iconplay);
+                    imgplay.setImageResource(R.drawable.playbutton);
                 }else {
                     mediaPlayer.start();
-                    imgplay.setImageResource(R.drawable.iconpause);
+                    imgplay.setImageResource(R.drawable.stopbutton);
                 }
             }
         });
@@ -116,7 +118,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                     imgrandom.setImageResource(R.drawable.iconshuffled);
                     checkrandom = true;
                 }else {
-                    imgrandom.setImageResource(R.drawable.iconshuffled);
+                    imgrandom.setImageResource(R.drawable.iconsuffle);
                     checkrandom = false;
                 }
             }
@@ -148,7 +150,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                         mediaPlayer = null;
                     }
                     if(position <(mangbaihat.size())){
-                        imgplay.setImageResource(R.drawable.iconpause);
+                        imgplay.setImageResource(R.drawable.stopbutton);
                         position++;
                         if(repeat == true){
                             if(position == 0){
@@ -179,7 +181,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        imgpre.setClickable(false);
+                        imgpre.setClickable(true);
                         imgnext.setClickable(true);
                     }
                 },5000);
@@ -195,7 +197,7 @@ public class PlayNhacActivity extends AppCompatActivity {
                         mediaPlayer = null;
                     }
                     if(position <(mangbaihat.size())){
-                        imgplay.setImageResource(R.drawable.iconpause);
+                        imgplay.setImageResource(R.drawable.stopbutton);
                         position--;
                         if(position <0){
                             position = mangbaihat.size() -1;
@@ -219,6 +221,16 @@ public class PlayNhacActivity extends AppCompatActivity {
                         UpdateTime();
                     }
                 }
+                imgpre.setClickable(false);
+                imgnext.setClickable(false);
+                Handler handler1 = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        imgpre.setClickable(true);
+                        imgnext.setClickable(true);
+                    }
+                },5000);
             }
         });
     }
@@ -264,21 +276,17 @@ public class PlayNhacActivity extends AppCompatActivity {
         fragment_dia_nhac = new Fragment_Dia_Nhac();
         fragment_play_danh_sach_cac_bai_hat = new Fragment_Play_Danh_Sach_Cac_Bai_Hat();
         adapternhac = new ViewPagerPlaylistnhac(getSupportFragmentManager());
-        //if(mangbaihat.size() == 1) {
-//            adapternhac.AddFragment(fragment_dia_nhac);
-//            adapternhac.AddFragment(fragment_play_danh_sach_cac_bai_hat);
-//        } else {
-            adapternhac.AddFragment(fragment_play_danh_sach_cac_bai_hat);
-            adapternhac.AddFragment(fragment_dia_nhac);
-//        }
+        adapternhac.AddFragment(fragment_play_danh_sach_cac_bai_hat);
+        adapternhac.AddFragment(fragment_dia_nhac);
         viewPagerplaynhac.setAdapter(adapternhac);
         fragment_dia_nhac = (Fragment_Dia_Nhac) adapternhac.getItem(1);
         if(mangbaihat.size() >0){
             getSupportActionBar().setTitle(mangbaihat.get(0).getTenBaiHat());
             new PlayMp3().execute(mangbaihat.get(0).getLinkBaiHat());
-            imgplay.setImageResource(R.drawable.iconpause);
+            imgplay.setImageResource(R.drawable.stopbutton);
         }
     }
+
     class PlayMp3 extends AsyncTask<String,Void,String>{
 
         @Override
@@ -290,18 +298,18 @@ public class PlayNhacActivity extends AppCompatActivity {
         protected void onPostExecute(String baihat) {
             super.onPostExecute(baihat);
             try{
-            mediaPlayer = new MediaPlayer();
-            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    mediaPlayer.stop();
-                    mediaPlayer.reset();
-                }
-            });
+                mediaPlayer = new MediaPlayer();
+                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        mediaPlayer.stop();
+                        mediaPlayer.reset();
+                    }
+                });
 
-            mediaPlayer.setDataSource(baihat);
-            mediaPlayer.prepare();
+                mediaPlayer.setDataSource(baihat);
+                mediaPlayer.prepare();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -346,7 +354,7 @@ public class PlayNhacActivity extends AppCompatActivity {
             public void run() {
                 if(next == true){
                     if(position <(mangbaihat.size())){
-                        imgplay.setImageResource(R.drawable.iconpause);
+                        imgplay.setImageResource(R.drawable.stopbutton);
                         position++;
                         if(repeat == true){
                             if(position == 0){
