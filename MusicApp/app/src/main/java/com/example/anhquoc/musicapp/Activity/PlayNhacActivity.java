@@ -29,6 +29,10 @@ import com.example.anhquoc.musicapp.Fragment.Fragment_Dia_Nhac;
 import com.example.anhquoc.musicapp.Fragment.Fragment_Play_Danh_Sach_Cac_Bai_Hat;
 import com.example.anhquoc.musicapp.Model.Baihat;
 import com.example.anhquoc.musicapp.R;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -39,7 +43,7 @@ public class PlayNhacActivity extends AppCompatActivity {
     Toolbar toolbarplaynhac;
     TextView txtTimesong,txttotaltimesong;
     SeekBar sktime;
-    ImageButton imgplay,imgrepeat,imgnext,imgpre,imgrandom, imgdownload;
+    ImageButton imgplay,imgrepeat,imgnext,imgpre,imgrandom, imgdownload, imagshare;
     ViewPager viewPagerplaynhac;
     public static ArrayList<Baihat> mangbaihat = new ArrayList<>();
     public static ViewPagerPlaylistnhac adapternhac;
@@ -51,6 +55,8 @@ public class PlayNhacActivity extends AppCompatActivity {
     boolean repeat = false;
     boolean checkrandom = false;
     boolean next = false;
+    CallbackManager callbackManager;
+    ShareDialog shareDialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +64,10 @@ public class PlayNhacActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         GetDataFromIntent();
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         init();
+        callbackManager = CallbackManager.Factory.create();
+        shareDialog = new ShareDialog(this);
         eventClick();
     }
 
@@ -243,6 +252,19 @@ public class PlayNhacActivity extends AppCompatActivity {
                 Long reference = downloadManager.enqueue(request);
             }
         });
+
+        imagshare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShareLinkContent shareLinkContent = new ShareLinkContent.Builder()
+                                                .setQuote("Music app: " + mangbaihat.get(position).getTenBaiHat())
+                                                .setContentUrl(Uri.parse(mangbaihat.get(position).getLinkBaiHat()))
+                                                .build();
+                if(shareDialog.canShow(ShareLinkContent.class)){
+                    shareDialog.show(shareLinkContent);
+                }
+            }
+        });
     }
 
     private void GetDataFromIntent() {
@@ -273,6 +295,7 @@ public class PlayNhacActivity extends AppCompatActivity {
         imgrepeat = findViewById(R.id.imagebuttonrepeat);
         imgdownload = findViewById(R.id.btnDownload);
         viewPagerplaynhac = findViewById(R.id.viewpaperplaynhac);
+        imagshare = findViewById(R.id.btnShare);
         setSupportActionBar(toolbarplaynhac);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbarplaynhac.setNavigationOnClickListener(new View.OnClickListener() {
