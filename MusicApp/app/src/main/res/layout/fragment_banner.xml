@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <android.support.v4.view.ViewPager
-            android:background="@color/colorPrimary"
+            android:background="@drawable/banner_theme"
             android:id="@+id/viewpaper"
             android:layout_width="match_parent"
             android:layout_height="180dp">

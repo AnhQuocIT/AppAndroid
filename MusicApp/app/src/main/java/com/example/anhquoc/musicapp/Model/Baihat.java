@@ -6,6 +6,19 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Baihat implements Parcelable {
+    public Baihat(String idBaiHat, String tenBaiHat, String hinhBaiHat, String caSi, String linkBaiHat, String luotThich) {
+        this.idBaiHat = idBaiHat;
+        this.tenBaiHat = tenBaiHat;
+        this.hinhBaiHat = hinhBaiHat;
+        this.caSi = caSi;
+        this.linkBaiHat = linkBaiHat;
+        this.luotThich = luotThich;
+    }
+
+    public Baihat() {
+
+    }
+
     @SerializedName("idBaiHat")
     @Expose
     private String idBaiHat;

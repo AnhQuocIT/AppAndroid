@@ -1,6 +1,9 @@
 package com.example.anhquoc.musicapp.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -35,7 +38,7 @@ public class Fragment_Playlist extends Fragment {
     TextView txttitleplaylist, txtviewmoreplaylist;
     PlaylistAdapter playlistAdapter;
     ArrayList<Playlist> arrayplaylist;
-
+    RelativeLayout relativeLayout;
     View view;
     @Nullable
     @Override
@@ -52,6 +55,9 @@ public class Fragment_Playlist extends Fragment {
                 startActivity(intent);
             }
         });
+        if(isOnline() == false){
+            view.setVisibility(View.GONE);
+        }
         return view;
     }
 
@@ -106,5 +112,15 @@ public class Fragment_Playlist extends Fragment {
         params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
         listView.setLayoutParams(params);
         listView.requestLayout();
+    }
+
+    protected boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

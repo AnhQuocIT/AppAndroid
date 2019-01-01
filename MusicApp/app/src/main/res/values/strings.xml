@@ -6,4 +6,6 @@
     <string name="lblSearch">Tìm kiếm</string>
     <string name="lblTenBaiHat">Tên bài hát</string>
     <string name="lblTenCaSi">Tên ca sĩ</string>
+    <string name="facebook_app_id">283402405859487</string>
+    <string name="fb_login_protocol_scheme">fb283402405859487</string>
 </resources>

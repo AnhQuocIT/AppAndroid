@@ -37,5 +37,10 @@
             android:name="com.example.anhquoc.musicapp.Fragment.Fragment_Bai_Hat_Hot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <fragment
+            android:id="@+id/fragmentNhacOffline"
+            android:name="com.example.anhquoc.musicapp.Fragment.Fragment_Nhac_Offline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>

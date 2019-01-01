@@ -1,6 +1,9 @@
 package com.example.anhquoc.musicapp.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -13,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.anhquoc.musicapp.Activity.DanhsachtatcaAlbumActivity;
@@ -33,18 +37,17 @@ import retrofit2.Response;
 
 public class Fragment_Album_Hot extends Fragment {
     View view;
-    ViewPager viewPager;
-    CircleIndicator circleIndicator;
     RecyclerView recyclerViewalbum;
     TextView txtxemthemalbum;
     AlbumAdapter albumAdapter;
-    Runnable runnable;
-    Handler handler;
-    int currentItem;
+    RelativeLayout relativeLayout;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_album_hot,container,false);
+        if(isOnline() == false){
+            view.setVisibility(View.GONE);
+        }
         recyclerViewalbum = view.findViewById(R.id.recycleviewAlbum);
         txtxemthemalbum = view.findViewById(R.id.textviewxemthemAlbum);
         txtxemthemalbum.setOnClickListener(new View.OnClickListener() {
@@ -54,15 +57,11 @@ public class Fragment_Album_Hot extends Fragment {
                 startActivity(intent);
             }
         });
-        //Mapping();
         GetData();
+
         return view;
     }
 
-    /*private void Mapping() {
-        viewPager = view.findViewById(R.id.viewpaper);
-        circleIndicator = view.findViewById(R.id.indicatordefault);
-    }*/
 
     private void GetData() {
         DataService dataService = APIService.getService();
@@ -84,4 +83,15 @@ public class Fragment_Album_Hot extends Fragment {
             }
         });
     }
+
+    protected boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

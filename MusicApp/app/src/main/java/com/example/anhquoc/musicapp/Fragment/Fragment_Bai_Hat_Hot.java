@@ -1,5 +1,8 @@
 package com.example.anhquoc.musicapp.Fragment;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.example.anhquoc.musicapp.Adapter.AlbumAdapter;
 import com.example.anhquoc.musicapp.Adapter.BaihathotAdapter;
@@ -30,12 +34,16 @@ public class Fragment_Bai_Hat_Hot extends Fragment {
     View view;
     RecyclerView recyclerViewBaiHatHot;
     BaihathotAdapter baihathotAdapter;
+    RelativeLayout relativeLayout;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_bai_hat_hot,container,false);
         recyclerViewBaiHatHot = view.findViewById(R.id.recycleviewbaihathot);
         GetData();
+        if(isOnline() == false){
+            view.setVisibility(View.GONE);
+        }
         return view;
     }
 
@@ -59,4 +67,15 @@ public class Fragment_Bai_Hat_Hot extends Fragment {
             }
         });
     }
+
+    protected boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

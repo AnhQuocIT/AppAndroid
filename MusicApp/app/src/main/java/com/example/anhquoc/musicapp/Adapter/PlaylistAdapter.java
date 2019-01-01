@@ -44,7 +44,6 @@ public class PlaylistAdapter extends ArrayAdapter<Playlist> {
             viewHolder.imgbackground = convertView.findViewById(R.id.imageviewbackgroundplaylist);
             convertView.setTag(viewHolder);
         }else {
-
             viewHolder = (ViewHolder) convertView.getTag();
         }
         Playlist playlist = getItem(position);
